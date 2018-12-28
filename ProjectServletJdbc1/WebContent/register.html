@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RegisterHere</title>
+<script type="text/javascript">
+function str_len(){
+    var l1=document.getElementById("password").value;
+if(l1.length==0){
+    document.getElementById("msg1").innerHTML="";
+    document.getElementById("msg2").innerHTML="";
+    document.getElementById("msg3").innerHTML="";
+    document.getElementById("msg4").innerHTML="Please enter password of length > 8";
+}
+else if(l1.length<7||l1.length<0)
+{
+    document.getElementById("msg2").innerHTML="";
+    document.getElementById("msg3").innerHTML="";
+    document.getElementById("msg4").innerHTML="";
+    document.getElementById("msg1").innerHTML="The minimum length should be 8";
+}
+else if(l1.length==7)
+{
+    document.getElementById("msg2").innerHTML="";
+    document.getElementById("msg4").innerHTML="";
+    document.getElementById("msg1").innerHTML="";
+    document.getElementById("msg3").innerHTML="!fair";
+}
+else{
+    document.getElementById("msg3").innerHTML="";
+    document.getElementById("msg1").innerHTML="";
+    document.getElementById("msg4").innerHTML="";
+    document.getElementById("msg2").innerHTML="OK";
+}
+}
+function conf_pass(){
+    var l1=document.getElementById("password").value;
+    var c1 = document.getElementById("conf_password").value;
+    if(l1.length==0){
+    document.getElementById("err1").innerHTML="";
+    document.getElementById("err2").innerHTML="";
+    document.getElementById("err3").innerHTML="Didn't find Password to conform";
+}
+    else if(document.getElementById("password").value!=document.getElementById("conf_password").value){
+    document.getElementById("err2").innerHTML="";  
+    document.getElementById("err3").innerHTML="";
+    document.getElementById("err1").innerHTML="Password entered did not match";
+    }
+    else{
+    document.getElementById("err1").innerHTML="";
+    document.getElementById("err3").innerHTML="";
+    document.getElementById("err2").innerHTML="Password matched";
+    }
+}
+function calcage() {
+    var n=document.getElementById("DOB").value;
+    var getAge = Math.floor((new Date().getTime() - new Date(n).getTime()) / 31556925994);
+    if(getAge<=0){
+        document.getElementById("age").value="";
+        document.getElementById("Age1").innerHTML="Please enter valid Date of Birth";
+        document.getElementById("dob1").innerHTML="Sorry Date of Birth is not Valid";
+    }
+    else{
+        document.getElementById("Age1").innerHTML="";
+        document.getElementById("dob1").innerHTML="";
+        document.getElementById("age").value=getAge;
+    }
+}
+function Phone(){
+    var p = document.getElementById("phno").value;
+    if(p.length>10){
+        document.getElementById("phno1").innerHTML="Password must contain 10 digits only";
+    }
+    else{
+        document.getElementById("phno1").innerHTML="";
+    }
+
+}
+         
+</script>
+</head>
+<style>
+#msg1, #err1, #Age1, #dob1, #phno1{
+    color: red;
+    background-color: rgb(235, 142, 142);
+}
+#msg2, #err2{
+    color: green;
+    background-color: rgb(114, 233, 103);
+}
+#msg3{
+    color: rgb(255, 153, 0);
+    background-color: rgb(233, 231, 103);
+}
+#msg4, #err3{
+    color: blue;
+    background-color:rgb(149, 149, 207);
+}
+.table1{
+    padding-top: 30px;
+    background-color:transparent;
+	background-image: radial-gradient(blue,white,blue);
+}
+table {
+    border-style: ridge;
+    border-width: 3px;
+    border-color: rgb(100, 88, 206);
+    padding: 10px;
+    text-align: right;
+}
+th, td{
+    border: transparent;
+}
+#p1{
+    content: "*";
+    color: red;
+}
+.button{
+	background-color:transparent;
+	color: white;
+	cursor:pointer;
+	border-radius: 30%;
+}
+.heading{
+width="4000";
+}
+.PD{
+    font-weight: bold;
+    position: absolute;
+    left: 218px;
+    top: 145px;
+    color: rgb(240, 240, 240);
+    font-size: 20px;
+    padding: 4px 10px;
+    border-radius: 30%;
+    background-image: radial-gradient(white,blue,black);
+}
+.ED{
+    font-weight: bold;
+    position: absolute;
+    left: 490px;
+    top: 365px;
+    color: rgb(240, 240, 240);
+    font-size: 20px;
+    padding: 4px 10px;
+    border-radius: 30%;
+	background-color:transparent;
+    background-image: radial-gradient(white,green,black);
+}
+.CD{
+    font-weight: bold;
+    position: absolute;
+    left: 800px;
+    top: 365px;
+    color: rgb(240, 240, 240);
+    font-size: 20px;
+    padding: 4px 10px;
+    border-radius: 30%;
+	background-color:transparent;
+    background-image: radial-gradient(white,Red,black);
+}
+.tr{
+    background-image: radial-gradient(blue,white);
+}
+form{
+    align-content: center;
+}
+body{
+        background-image: radial-gradient(white,blue,white);
+		background-position: 0px 135px;
+		background-repeat: no-repeat;
+		background-padding-top:100px;
+	
+}
+</style>
+ <body>
+ <br>
+  <table class="heading" width="1350">
+	<th>
+	<h1 align="center">REGISTER HERE FOR RAILWAY SERVICES</h1>
+	</th>
+ </table>
+ <br>
+
+     <div>
+<form action="Register" method="post">
+        <label class="PD">Personal-Details</label>
+ <table class="table1" align="center">
+     <tr class="tr">
+        <th>
+         <span id="p1">*</span>First Name :<input type="text" name="Fname" title="Enter your first name" placeholder="Your Name" required>
+        </th>
+        <th>
+             Middle Name : <input type="text" name="Mname" placeholder="middle name(if any)">
+        </th>
+        <th>
+         <span id="p1">*</span>Last Name : <input type="text" name="Lname" title="Enter your surname" placeholder="Surname"required>
+        </th>
+    </tr>
+    <tr class="tr">
+        <th>
+            <br>
+            <span id="p1">*</span>Date Of Birth : <input id="DOB" type="text" name="dob" placeholder="yyyy/mm/dd" onkeypress="calcage()" onkeyup="calcage()" required>
+            <div id="dob1"></div>
+        </th>
+        <th>
+                <br>
+                <span id="p1">*</span>Age : <input id="age" type="text" name="age" readonly>
+                <div id="Age1"></div>
+       </th>
+        <th>
+            <br>
+            <span id="p1">*</span>Primary E-mail : <input type="email" name="Emid1" placeholder="abc@123.xy" required>
+        </th>
+    </tr>
+    <tr class="tr">
+        <th>
+            <br>
+            <span id="p1">*</span>Phone Number1 : <input id="phno" type="text" name="ph1" title="10 digit mobile number" pattern="[0-9]{10}" placeholder="987456123" onkeypress="Phone()" onkeyup="Phone()" required>
+            <div id="phno1"></div>
+        </th>
+        <th>
+            <br>
+            Phone Number2 : <input type="text" name="ph2" placeholder="Ex:-987654321(option)">
+        </th>
+        <th>
+            <br>
+            Secindary E-mail : <input type="email" name="Emid2" placeholder="abc@123.xy(option)">
+        </th>
+    </tr>
+    <tr class="tr">
+        <th>
+            <br>
+            <span id="p1">*</span>User Name : <input type="text" name="Uname" required>
+        </th>
+        <th>
+            <div id="msg">
+        <br><span id="p1">*</span>Password
+            <input id="password" name="Pword" title="Minimum password length should be 8" type="password" ondrop="return false;" onpaste="return false;" name="pass" onkeypress="str_len()" onkeyup="str_len()" required>
+            <div id=msg1></div>
+            <div id=msg2></div>
+            <div id=msg3></div>
+            <div id="msg4"></div>
+            </div>
+        </th>
+        <th>
+            <br>
+            <span id="p1">*</span>Confirm Password : <input id="conf_password" ondrop="return false;" onpaste="return false;" title="Re-type the password" type="password" placeholder="Conform your password" onkeypress="conf_pass()" onkeyup="conf_pass()" required>
+            <div id=err1></div>
+            <div id=err2></div>
+            <div id="err3"></div>
+        </th>
+    </tr>
+</table>
+   <label class="ED"> <input class = "button" type="submit" title="click here to submit"></label>
+      <label class="CD"> <input class = "button" type="Reset" title="click here to Reset"></label>
+      </form>
+</div>
+<br>
+<br>
+</body>
+</html>
